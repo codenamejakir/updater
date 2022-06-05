@@ -1,6 +1,6 @@
 <?xml version="1.0"?> 
 <Update> 
-    <AppId Id="99"> 
+    <Info Id="99"> 
       <Version>4.1.0.0</Version>
       <Description>
         Date: 08/09/2018:
@@ -16,5 +16,5 @@
       <UpdateFilesHash>569cbcacfa48004a78e6437e50fc36d0</UpdateFilesHash>   
       <UpdateWorkerUri>https://update.server.con/99/Update.Worker.exe</UpdateWorkerUri>
       <UpdateWorkerHash>569cbcacfa48004a78e6437e50fc36d0</UpdateWorkerHash>
-    </AppId> 
+    </Info> 
 </Update>
