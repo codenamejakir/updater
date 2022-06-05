@@ -1,0 +1,4 @@
+CREATE TABLE dbo.table1 (Id INT IDENTITY,Name VARCHAR(50) NULL) ON [PRIMARY];
+INSERT INTO table1 ([Name]) VALUES ('Version 3.1');
+INSERT INTO table1 ([Name]) VALUES ('Jakir Hossain');
+ALTER TABLE dbo.table1 ADD Bar INT NOT NULL DEFAULT(0)
