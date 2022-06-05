@@ -7,9 +7,9 @@
         Update (v.3):
         New version of Demo App
       </Description>
-      <ExecutableUri>https://update.server.con/99/School.exe</ExcutableUri> 
-      <ExecutableName>School.exe</ExcutableName> 
-      <ExecutableHash>458330a81abf4925140eadf3b4a9baf2</ExcutableHash>
+      <ExecutableUri>https://update.server.con/99/School.exe</ExecutableUri> 
+      <ExecutableName>SIMS.exe</ExecutableName> 
+      <ExecutableHash>458330a81abf4925140eadf3b4a9baf2</ExecutableHash>
       <QueryUri>https://update.server.con/99/Query.txt</QueryUri>
       <QueryHash>569cbcacfa48004a78e6437e50fc36d0</QueryHash>
       <UpdateFilesUri>https://update.server.con/99/updates.zip</UpdateFilesUri>         
