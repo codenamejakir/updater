@@ -12,6 +12,6 @@
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
      <query>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Query.txt</query>
-     <files>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Files.zip</file>
+     <files>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Files.zip</files>
      <worker>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Updater.Worker.exe</worker>
 </update>
