@@ -1,10 +1,11 @@
 <?xml version="1.0"?> 
 <Update> 
     <App Id="99"> 
-      <Version>4.1.0.0</Version>
-      <Description>
-        Relase date: 06/06/2022
+      <Version>3.1.0.0</Version>
+      <Description>        
         Version: 3.1.0.0        
+        Relase date: 06/06/2022
+          
         What's new:
           1. Attendance feature.
           2. Minor bugs fixed.
