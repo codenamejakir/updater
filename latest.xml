@@ -15,9 +15,9 @@
       <ExecutableHash>458330a81abf4925140eadf3b4a9baf2</ExecutableHash>
       <QueryUri>https://raw.githubusercontent.com/codenamejakir/updater/main/files/Query.txt</QueryUri>
       <QueryHash>569cbcacfa48004a78e6437e50fc36d0</QueryHash>
-      <UpdateFilesUri>https://raw.githubusercontent.com/codenamejakir/updater/main/files/updates.zip</UpdateFilesUri>         
+      <UpdateFilesUri>https://raw.githubusercontent.com/codenamejakir/updater/main/files/Updates.zip</UpdateFilesUri>         
       <UpdateFilesHash>569cbcacfa48004a78e6437e50fc36d0</UpdateFilesHash>   
-      <UpdateWorkerUri>https://raw.githubusercontent.com/codenamejakir/updater/main/files/Update.Worker.exe</UpdateWorkerUri>
+      <UpdateWorkerUri>https://raw.githubusercontent.com/codenamejakir/updater/main/files/Updater.Worker.exe</UpdateWorkerUri>
       <UpdateWorkerHash>569cbcacfa48004a78e6437e50fc36d0</UpdateWorkerHash>
     </App> 
 </Update>
