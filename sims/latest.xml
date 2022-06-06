@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<update>
+     <version>3.1.0.0</version>
+     <description>        
+        Version: 3.1.0.0        
+        Relase date: 06/06/2022
+          
+        What's new:
+          1. Attendance feature.
+          2. Minor bugs fixed.
+      </description>
+     <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
+     <name>SIMS.exe</name>
+     <query>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Query.txt</query>
+     <files>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Files.zip</file>
+     <worker>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/Updater.Worker.exe</worker>
+</update>
