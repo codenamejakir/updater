@@ -3,5 +3,5 @@
    "url": "https://raw.githubusercontent.com/codenamejakir/updater/main/wc/files/bpwc.v1.0.3.apk",
    "releaseDate": "July 04, 2022",
    "releaseNote": "Order tracker.",  
-   "required": false  
+   "required": true  
  }
