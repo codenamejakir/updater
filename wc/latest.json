@@ -1,7 +1,7 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
    "url": "https://raw.githubusercontent.com/codenamejakir/updater/main/wc/files/bpwc.v1.0.3.apk",
-   "releaseDate": "02/07/2022",
-   "releaseNote": "Bug fixed!",  
+   "releaseDate": "July 04, 2022",
+   "releaseNote": "Order tracker.",  
    "required": false  
  }
