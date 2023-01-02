@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <update>
-     <version>3.1.0.0</version>
+     <version>4.0.0.3</version>
      <description>        
-        Version: 3.1.0.0        
-        Relase date: 06/06/2022
-          
+        Version: 4.0.0.3        
+        Relase date: 02/01/2023          
         What's new:
-          1. Attendance feature.
-          2. Minor bugs fixed.
+          1. Promote issue fixed.
+          2. Annual exam ready.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
