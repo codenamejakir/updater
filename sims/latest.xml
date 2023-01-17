@@ -3,9 +3,9 @@
      <version>4.0.1.2</version>
      <description>        
         Version: 4.0.1.2        
-        Relase date: 17/01/2023          
+        Relase date: 17th January, 2023          
         What's new:
-          Fix application features missing.       
+        Fixed missing features.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
