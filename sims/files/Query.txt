@@ -1,1 +1,8 @@
 
+UPDATE App.Service
+SET Value = N'p8gUeF7x8paBoWx1Zqnozl6Jy95znM/zLOzcAqdL0t3bStFeTNhHxQp5lCwgQ7MWkU7AtyUpaM2HEIQoYqkaH5NG5UEmyCBvk/iV3ypQJsM='
+WHERE ServiceId = 1
+UPDATE App.Service
+SET Value = N'5JTXAzupK7lGTPLpJu+BvSBm6LszeCTkdSzg3voubRyLOKxNsviVKvDhGLT3qRF423v5KRM67OTjrj+syYoz2RS7S8HN/nQ1RDSh6+Py11A='
+WHERE ServiceId = 2
+
