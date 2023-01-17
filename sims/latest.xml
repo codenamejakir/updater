@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.0.1.0</version>
+     <version>4.0.1.2</version>
      <description>        
-        Version: 4.0.1.0        
-        Relase date: 03/01/2023          
+        Version: 4.0.1.2        
+        Relase date: 17/01/2023          
         What's new:
-          1. Auto update.       
+          Fix application features missing.       
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
