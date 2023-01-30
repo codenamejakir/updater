@@ -1,8 +1,8 @@
 
 UPDATE App.Service
-SET Value = N'p8gUeF7x8paBoWx1Zqnozl6Jy95znM/zLOzcAqdL0t3bStFeTNhHxQp5lCwgQ7MWkU7AtyUpaM2HEIQoYqkaH5NG5UEmyCBvk/iV3ypQJsM='
+SET Value = N'cdTDK1cdBbUR2nvZdesQU3vBU3DR743UqhGM7X0jd8t2BtEZ4+tf7AgsdB4DONl7pLoXQjuToU4tpwuf7JgSnft/c2jfp09PU10bs2jYJuFEu9o8oD3tp7a2WPH+sKjmiaI7w8rP+b7mnbmh9L7O9Q=='
 WHERE ServiceId = 1
 UPDATE App.Service
-SET Value = N'5JTXAzupK7lGTPLpJu+BvSBm6LszeCTkdSzg3voubRyLOKxNsviVKvDhGLT3qRF423v5KRM67OTjrj+syYoz2RS7S8HN/nQ1RDSh6+Py11A='
+SET Value = N'VBZ/5V2iky7gIO8wm0tw9mH6VgYGeShQGU/aB3GeHcNTHoD9eajl2+wDh0ALMQP2WFV4vJurUbMaAXdKEAk80j5zfubUpCs4FqLyrFlgY4c='
 WHERE ServiceId = 2
 
