@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.0.1.3</version>
+     <version>4.0.1.4</version>
      <description>        
-        Version: 4.0.1.3        
-        Relase date: 31st January, 2023          
+        Version: 4.0.1.4        
+        Relase date: 25/02/2023          
         What's new:
-        Fixed memory leak data payload issue.
+        Student promotion annual exam fixed.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
