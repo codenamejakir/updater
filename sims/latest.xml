@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.0.1.4</version>
+     <version>4.0.1.5</version>
      <description>        
-        Version: 4.0.1.4        
-        Relase date: 25/02/2023          
+        Version: 4.0.1.5        
+        Relase date: 26/02/2023          
         What's new:
-        Student promotion annual exam fixed.
+        Student promotion error fixed.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
