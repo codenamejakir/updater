@@ -2,6 +2,6 @@
   "version": "1.0.1",
    "url": "https://raw.githubusercontent.com/codenamejakir/updater/main/hris/files",
    "releaseDate": "27th Feb, 2023",
-   "releaseNote": "Updater implement.",  
+   "releaseNote": "Updater function",  
    "required": true  
  }
