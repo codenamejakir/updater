@@ -1,7 +1,7 @@
 {
-  "version": "1.0.2",
-   "url": "https://raw.githubusercontent.com/codenamejakir/updater/main/hris/files/bgi.hris.v1.0.2.apk",
-   "releaseDate": "26th Feb, 2023",
-   "releaseNote": "Minor bug fixed!",  
+  "version": "1.0.1",
+   "url": "https://raw.githubusercontent.com/codenamejakir/updater/main/hris/files/",
+   "releaseDate": "27th Feb, 2023",
+   "releaseNote": "Updater implement.",  
    "required": true  
  }
