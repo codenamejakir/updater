@@ -1,8 +1,33 @@
 
-UPDATE App.Service
-SET Value = N'Za79JTf9b1nxLLmkm1FEAmc8aedax7n7MSSc+dN94xHwCow8bfx16TrX+/aRwrL4SsdaqU2Qxs0OfsFpFVnavJ/6JZTvBSR5+BJquQQXJW5CtTn2YsPHbUthbvqoOgNE50L/5Y8zsCGTLH17Jx4nng=='
-WHERE ServiceId = 1
-UPDATE App.Service
-SET Value = N'BVjFDmbyQzmv5cA45S/RNtWOHTPZYcYRmxH09BDyAUjdvxuaZngxxRhK7vvWS5sMe9CCUYDuQN2mUlN2k/Yh+4yLBbcH98DcY4eMiDq/Zz4='
-WHERE ServiceId = 2
+CREATE OR ALTER PROCEDURE dbo.usp_Edu_Exam_Group_Result_Import_Multiple @ExamIds NVARCHAR(100), @ClassId INT, @GroupId INT
+AS
+BEGIN
+;WITH ExamIds AS (SELECT value AS ExamId  FROM STRING_SPLIT(@ExamIds, ','))
+, T AS (
+    SELECT
+        r.StudentId,
+        SUM(r.TotalMarks) TotalMarks,
+        SUM(r.ObtainedMarks) ObtainedMarks
+    FROM Edu.[Result] r
+    WHERE r.ExamId IN (SELECT ExamId FROM ExamIds)
+        AND r.ClassId = @ClassId
+        AND r.GroupId = @GroupId
+    GROUP BY r.StudentId
+)
+SELECT StudentId, TotalMarks, ObtainedMarks,
+ROUND(CAST((ObtainedMarks / TotalMarks) * 100.00 AS DECIMAL(16, 2)), 0) AS [Percent]
+ FROM T;
+END
+GO;
 
+CREATE OR ALTER PROCEDURE dbo.usp_Edu_Mark_Delete_Multiple @ExamId INT, @ClassId INT, @GroupId INT, @SubjectId INT, @StudentId INT
+AS
+BEGIN
+  DELETE FROM Edu.Marks
+  WHERE ExamId = @ExamId
+    AND ClassId = @ClassId
+    AND GroupId = @GroupId
+    AND SubjectId = @SubjectId
+    AND StudentId = @StudentId
+END
+GO;
