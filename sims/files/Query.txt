@@ -30,5 +30,8 @@ BEGIN
 END
 GO;
 
-DROP PROCEDURE usp_Edu_Mark_Delete_Multiple
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'usp_Edu_Mark_Delete_Multiple')
+BEGIN
+  DROP PROCEDURE usp_Edu_Mark_Delete_Multiple;
+END
 GO;
