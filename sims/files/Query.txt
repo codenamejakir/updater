@@ -1,2 +1,2 @@
-DELETE SIMSv4.App.Service WHERE ServiceId =2;
+-- DELETE SIMSv4.App.Service WHERE ServiceId =2;
 GO;
