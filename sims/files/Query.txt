@@ -1,5 +1,2 @@
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'usp_Edu_Mark_Delete_Multiple')
-BEGIN
-  DROP PROCEDURE usp_Edu_Mark_Delete_Multiple;
-END
+DELETE SIMSv4.App.Service WHERE ServiceId =2;
 GO;
