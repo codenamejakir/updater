@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.3.0.0</version>
+     <version>4.4.0.0</version>
      <description>        
-        Version: 4.3.0.0        
-        Relase date: 10/03/2025          
+        Version: 4.4.0.0        
+        Relase date: 01/06/2025          
         What's new:
-        Student List Gender Export Fixed.
+        Six to Eight Practical Marksheet.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
