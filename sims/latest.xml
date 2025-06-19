@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.4.0.0</version>
+     <version>4.4.0.1</version>
      <description>        
-        Version: 4.4.0.0        
-        Relase date: 01/06/2025          
+        Version: 4.4.0.1        
+        Relase date: 19/06/2025          
         What's new:
-        Six to Eight Practical Marksheet.
+        Class two result ordering issue with section roll issue.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
