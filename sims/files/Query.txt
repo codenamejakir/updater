@@ -1,2 +1,143 @@
--- DELETE SIMSv4.App.Service WHERE ServiceId =2;
+USE SIMSv4
+GO;
+
+ALTER PROCEDURE dbo.usp_Rpt_Monthly_Collection_Summary
+  @Month DATE = '2025-06-01',
+@SessionId INT = 9
+AS 
+BEGIN
+ 
+ 
+WITH ActiveStudents AS (
+    SELECT 
+        a.StudentId, 
+        a.ClassId, 
+        a.GroupId,
+        cl.CollectionLineId ,
+        cl.Amount AS ExpectedAmt
+    FROM Edu.Admission a    
+    INNER JOIN Edu.CollectionLine cl 
+        ON a.SessionId = cl.SessionId  
+        AND a.ClassId = cl.ClassId 
+        AND a.GroupId = cl.GroupId
+        AND cl.AppliedMonth = @Month
+        AND cl.CollectionTypeId = 2
+    WHERE a.SessionId = @SessionId AND a.IsActive = 1  
+)
+,
+
+StudentWaivers AS (
+    SELECT 
+        w.StudentId , 
+        w.CollectionLineId , 
+        w.Amount AS WaiverAmt
+    FROM Edu.Waiver w 
+    INNER JOIN ActiveStudents a ON w.StudentId = a.StudentId
+    INNER JOIN Edu.CollectionLine cl ON w.CollectionLineId = cl.CollectionLineId
+    WHERE w.SessionId = @SessionId AND cl.CollectionTypeId =2
+),
+ 
+
+
+StudentPayments AS (
+    SELECT 
+        r.StudentId,
+        rl.CollectionLineId ,
+        rl.Amount AS PaidAmt
+    FROM Edu.ReceiptLine rl
+    INNER JOIN Edu.Receipt r ON rl.ReceiptId = r.ReceiptId
+    INNER JOIN ActiveStudents a ON a.StudentId = r.StudentId
+    INNER JOIN Edu.CollectionLine cl ON rl.CollectionLineId = cl.CollectionLineId
+    WHERE r.SessionId = @SessionId AND rl.ValidMonth = @Month AND cl.CollectionTypeId = 2
+),
+CombinedData AS (
+    SELECT 
+        s.StudentId,
+        s.ClassId,
+        s.CollectionLineId,
+        s.ExpectedAmt,
+        p.PaidAmt,
+        w.WaiverAmt
+    FROM ActiveStudents s
+    LEFT JOIN StudentPayments p 
+        ON s.StudentId = p.StudentId AND s.CollectionLineId = p.CollectionLineId
+    LEFT JOIN StudentWaivers w 
+        ON s.StudentId = w.StudentId AND s.CollectionLineId = w.CollectionLineId
+)
+,
+ 
+PaymentStatus AS (
+    SELECT 
+        StudentId,
+        ClassId,
+        CollectionLineId,
+        ExpectedAmt, 
+        ISNULL(WaiverAmt, 0) AS WaiverAmt,
+        ISNULL(PaidAmt, 0) AS PaidAmt,
+ 
+        
+        CASE 
+            WHEN PaidAmt = 0 THEN ExpectedAmt
+            WHEN PaidAmt > 0 AND PaidAmt < ExpectedAmt THEN PaidAmt
+            WHEN PaidAmt = ExpectedAmt THEN PaidAmt
+            WHEN PaidAmt IS NULL AND WaiverAmt IS NULL THEN ExpectedAmt      
+            WHEN PaidAmt IS NULL AND WaiverAmt > 0 THEN WaiverAmt 
+            WHEN WaiverAmt > 0 THEN (ExpectedAmt - WaiverAmt)
+            ELSE 0
+        END AS Amount,
+        CASE 
+            WHEN PaidAmt = 0 THEN 'Full Waiver'
+            WHEN PaidAmt > 0 AND PaidAmt < ExpectedAmt THEN 'Partial Waiver Paid'
+            WHEN PaidAmt = ExpectedAmt THEN 'Paid'
+            WHEN PaidAmt IS NULL AND WaiverAmt IS NULL THEN 'Due'      
+            WHEN PaidAmt IS NULL AND WaiverAmt > 0 THEN 'Partial Waiver Due'    
+             WHEN WaiverAmt > 0 THEN 'Partial Loss'           
+            ELSE 'Unclassified'
+        END AS Status
+    FROM CombinedData
+)
+SELECT 
+    c.Name AS ClassName,
+    COUNT(StudentId) AS TotalStudents,
+    SUM(CASE WHEN Status = 'Paid' THEN Amount ELSE 0 END) AS Paid,
+    SUM(CASE WHEN Status = 'Partial Waiver Paid' THEN Amount ELSE 0 END) AS PartialWaiverPaid,
+    SUM(CASE WHEN Status IN ('Paid', 'Partial Waiver Paid') THEN Amount ELSE 0 END) AS TotalPaid,
+    SUM(CASE WHEN Status = 'Due' THEN Amount ELSE 0 END) AS Due,
+    SUM(CASE WHEN Status = 'Partial Waiver Due' THEN Amount ELSE 0 END) AS PartialWaiverDue,
+    SUM(CASE WHEN Status IN ('Due', 'Partial Waiver Due') THEN Amount ELSE 0 END) AS TotalDue,
+    SUM(CASE WHEN Status = 'Full Waiver' THEN Amount ELSE 0 END) AS FullWaiver,
+    SUM(CASE WHEN Status IN ('Partial Waiver Paid', 'Partial Waiver Due') THEN Amount ELSE 0 END) AS PartialWaiver,
+    SUM(CASE WHEN Status IN ('Full Waiver', 'Partial Waiver Paid', 'Partial Waiver Due') THEN Amount ELSE 0 END) AS TotalWaiver,
+
+
+
+    SUM(CASE WHEN Status = 'Paid' THEN 1 ELSE 0 END) AS PaidCount,
+    SUM(CASE WHEN Status = 'Partial Waiver Paid' THEN 1 ELSE 0 END) AS PartialWaiverPaidCount,
+    
+    SUM(CASE WHEN Status IN ('Paid', 'Partial Waiver Paid') THEN 1 ELSE 0 END) AS TotalPaidCount,    
+
+
+    SUM(CASE WHEN Status = 'Due' THEN 1 ELSE 0 END) AS DueCount,
+    SUM(CASE WHEN Status = 'Partial Waiver Due' THEN 1 ELSE 0 END) AS PartialWaiverDueCount,
+
+    SUM(CASE WHEN Status IN ('Due', 'Partial Waiver Due') THEN 1 ELSE 0 END) AS TotalDueCount,    
+
+    SUM(CASE WHEN Status = 'Full Waiver' THEN 1 ELSE 0 END) AS FullWaiverCount,
+    SUM(CASE WHEN Status IN('Partial Waiver Paid', 'Partial Waiver Due') THEN 1 ELSE 0 END) AS PartialWaiverCount,
+
+   
+
+   SUM(CASE 
+        WHEN WaiverAmt > 0 THEN (ExpectedAmt - WaiverAmt) 
+        ELSE 0 
+    END) AS ParitalWaiverLossAmount
+    
+FROM PaymentStatus ps
+INNER JOIN Edu.Class c ON ps.ClassId = c.ClassId
+GROUP BY c.Name, ps.ClassId
+ORDER BY ps.ClassId;
+
+ 
+
+ END
 GO;
