@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.4.0.3</version>
+     <version>4.4.0.4</version>
      <description>        
-        Version: 4.4.0.3        
+        Version: 4.4.0.4        
         Relase date: 05/07/2025          
         What's new:
         Main software customization 1-9.
+        Fixed minor bugs!
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
