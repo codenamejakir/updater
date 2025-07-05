@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <update>
-     <version>4.4.0.2</version>
+     <version>4.4.0.3</version>
      <description>        
-        Version: 4.4.0.2        
-        Relase date: 19/06/2025          
+        Version: 4.4.0.3        
+        Relase date: 05/07/2025          
         What's new:
-        Class two result ordering issue with section roll issue.
+        Main software customization 1-9.
       </description>
      <executable>https://raw.githubusercontent.com/codenamejakir/updater/main/sims/files/SIMS.exe</executable>
      <name>SIMS.exe</name>
